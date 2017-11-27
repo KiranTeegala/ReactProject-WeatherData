@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreaters} from 'redux';
+import {bindActionCreators} from 'redux';
 import {fetchWeather} from '../actions/index';
 
 class SearchBar extends Component{
@@ -13,7 +13,6 @@ class SearchBar extends Component{
     }
 
     onInputChange(event){
-        console.log(event.target.value);
         this.setState({term:event.target.value});
         
     }
@@ -43,7 +42,7 @@ class SearchBar extends Component{
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreaters({fetchWeather},dispatch);
+    return bindActionCreators({fetchWeather},dispatch);
 }
 
 export default connect(null,mapDispatchToProps)(SearchBar);
